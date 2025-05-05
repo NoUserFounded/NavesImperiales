@@ -43,9 +43,9 @@ namespace NavesImperiales
 
         private void listView_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listView.SelectedItems.Count == 0) return;
+            if (lvNaus.SelectedItems.Count == 0) return;
 
-            var selectedName = listView.SelectedItems[0].Text;
+            var selectedName = lvNaus.SelectedItems[0].Text;
             selectedOption = technicalInfo.InfoOptions.FirstOrDefault(o => o.textOption == selectedName);
 
             if (selectedOption == null) return;
@@ -57,22 +57,22 @@ namespace NavesImperiales
             // Mostrar imagen principal (Blueprint)
             string imgPath = Path.Combine(basePath, "images", selectedDetail.Blueprint);
             if (File.Exists(imgPath))
-                pictureBox1.Image = Image.FromFile(imgPath);
+                pbPlanols.Image = Image.FromFile(imgPath);
             else
-                pictureBox1.Image = null;
+                pbPlanols.Image = null;
 
             // Mostrar detalles en el DataGridView
-            dataGridView1.Rows.Clear();
+            dgvEspec.Rows.Clear();
             if (selectedDetail.Data != null)
             {
-                dataGridView1.Rows.Add("Manufacturer", selectedDetail.Data.Manufacturer);
-                dataGridView1.Rows.Add("Length", selectedDetail.Data.Length);
-                dataGridView1.Rows.Add("Speed", selectedDetail.Data.Speed);
-                dataGridView1.Rows.Add("Hyperdrive", selectedDetail.Data.Hyperdrive);
-                dataGridView1.Rows.Add("Shielding", selectedDetail.Data.Shielding);
-                dataGridView1.Rows.Add("Armament", selectedDetail.Data.Armament);
+                dgvEspec.Rows.Add("Manufacturer", selectedDetail.Data.Manufacturer);
+                dgvEspec.Rows.Add("Length", selectedDetail.Data.Length);
+                dgvEspec.Rows.Add("Speed", selectedDetail.Data.Speed);
+                dgvEspec.Rows.Add("Hyperdrive", selectedDetail.Data.Hyperdrive);
+                dgvEspec.Rows.Add("Shielding", selectedDetail.Data.Shielding);
+                dgvEspec.Rows.Add("Armament", selectedDetail.Data.Armament);
             }
-            dataGridView1.ClearSelection();
+            dgvEspec.ClearSelection();
         }
 
         private void Load_Data()
@@ -81,8 +81,8 @@ namespace NavesImperiales
             technicalInfo = XmlManager<TechnicalInfo>.Load(xmlPath);
 
             // Configurar el ListView
-            listView.View = View.Details;  // Establecer la vista a "Detalles"
-            listView.Columns.Add("Ship Name", -2, HorizontalAlignment.Left);  // Añadir solo una columna para el nombre de la nave
+            lvNaus.View = View.Details;  // Establecer la vista a "Detalles"
+            lvNaus.Columns.Add("Ship Name", -2, HorizontalAlignment.Left);  // Añadir solo una columna para el nombre de la nave
 
             // Crear una lista de imágenes
             ImageList imgList = new ImageList();
@@ -102,14 +102,14 @@ namespace NavesImperiales
                 }
             }
 
-            listView.LargeImageList = imgList;  // Asignar la lista de imágenes al ListView
+            lvNaus.LargeImageList = imgList;  // Asignar la lista de imágenes al ListView
 
             // Añadir ítems al ListView
             foreach (var option in technicalInfo.InfoOptions)
             {
                 var item = new ListViewItem(option.textOption);
                 item.ImageKey = option.textOption;  // Asegurarse de que el ImageKey coincide con el que tenemos en el ImageList
-                listView.Items.Add(item);  // Agregar el ítem al ListView
+                lvNaus.Items.Add(item);  // Agregar el ítem al ListView
             }
         }
     }
