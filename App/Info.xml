@@ -1,0 +1,141 @@
+	<TechnicalInfo>
+		<InfoOptions>
+			<InfoOption>
+				<idOption>0</idOption>
+				<textOption>Shuttle</textOption>
+				<icon>Shuttle.png</icon>
+			</InfoOption>
+			<InfoOption>
+				<idOption>1</idOption>
+				<textOption>Tie-Fighter</textOption>
+				<icon>TieFighter.png</icon>
+			</InfoOption>
+			<InfoOption>
+				<idOption>2</idOption>
+				<textOption>Tie-Interceptor</textOption>
+				<icon>TieInterceptor.png</icon>
+			</InfoOption>
+			<InfoOption>
+				<idOption>3</idOption>
+				<textOption>Tie-Bomber</textOption>
+				<icon>TieBomber.png</icon>
+			</InfoOption>
+			<InfoOption>
+				<idOption>4</idOption>
+				<textOption>Tie-Advanced</textOption>
+				<icon>TieAdvanced.png</icon>
+			</InfoOption>
+		</InfoOptions>
+		<InfoDetails>
+			<InfoDetail>
+				<title>Lambda class T-4a Shuttle</title>
+				<pdfFile>Shuttle.pdf</pdfFile>
+				<Blueprint>blueprint.jpg</Blueprint>
+				<idInfoDetail>0</idInfoDetail>
+				<GeneralView>ImperialShuttle.mp4</GeneralView>>
+				<textInfoDetail>The Lambda Class Shuttle, is a multi-purpose transport with a trihedral foil design used by the First Order
+				</textInfoDetail>
+				<FrontView>front.png</FrontView>
+				<SideView>side.png</SideView>
+				<TopView>top.png</TopView>
+				<RearView>rear.png</RearView>
+				<View360>videoShuttle.png</View360>
+				<Data>	
+					<Manufacturer>Sienar Fleet Systems</Manufacturer>
+					<Length>22</Length>
+					<Speed>850 kph</Speed>
+					<Hyperdrive>Class 1</Hyperdrive>
+					<Shielding>Deflector Shield</Shielding>
+					<Armament>Laser cannons</Armament>
+				</Data>
+			</InfoDetail>
+			<InfoDetail>
+				<title>TIE-Advanced x1</title>
+				<pdfFile>TieAdvanced.pdf</pdfFile>
+				<Blueprint>TieAdvadced.png</Blueprint>
+				<idInfoDetail>4</idInfoDetail>
+				<GeneralView>TieAdvanced.mp4</GeneralView>
+				<textInfoDetail>The TIE Advanced x1, also known as "TIE/x1" or "TIE Interceptor prototype",[6] was an advanced prototype starfighter touted as a replacement for the standard TIE Fighter</textInfoDetail>
+				<FrontView>TieAdvancedDavant.png</FrontView>
+				<SideView>TieAdvancedLateral.png</SideView>
+				<TopView>TieAdvancedDalt.png</TopView>
+				<RearView>TieAdvanced.png</RearView>
+				<View360>VideoAdvanced.png</View360>
+				<Data>	
+					<Manufacturer>Sienar Fleet Systems</Manufacturer>
+					<Length>17</Length>
+					<Speed>1530 kph</Speed>
+					<Hyperdrive>Class 2</Hyperdrive>
+					<Shielding>Field Shield</Shielding>
+					<Armament>Laser blaster</Armament>
+				</Data>
+			</InfoDetail>
+			<InfoDetail>
+				<title>TIE/IN starfighter</title>
+				<pdfFile>TieInterceptor.pdf</pdfFile>
+				<Blueprint>TieInterceptor.jpg</Blueprint>
+				<idInfoDetail>2</idInfoDetail>
+				<textInfoDetail>
+				Interceptors were fast and maneuverable starfighters. They were designed specifically to target, hunt down, and destroy enemy fighters and bombers, hence the name interceptor, and thus were generally unsuited to carrying heavy bombing payloads. Interceptors could also be used for reconnaissance due to their high speed.
+				</textInfoDetail>
+				<GeneralView>TieInterceptor.mp4</GeneralView>
+				<FrontView>TieInterceptorDavant.png</FrontView>
+				<SideView>TieInterceptorLateral.png</SideView>
+				<TopView>TieInterceptorDalt.png</TopView>
+				<RearView>TieInterceptor.png</RearView>
+				<View360>VideoInterceptor.png</View360>
+				<Data>	
+					<Manufacturer>Sienar Fleet Systems</Manufacturer>
+					<Length>9.2</Length>
+					<Speed>1200 kph</Speed>
+					<Hyperdrive>Class 4</Hyperdrive>
+					<Shielding>Deflector Shield</Shielding>
+					<Armament>Laser cannons
+							  Cluster missile launch equipment
+					</Armament>
+				</Data>
+			</InfoDetail>
+			<InfoDetail>
+				<title>TIE/SA Bomber</title>
+				<pdfFile>Tiebomber.pdf</pdfFile>
+				<Blueprint>tiebomber.jpg</Blueprint>
+				<idInfoDetail>3</idInfoDetail>
+				<textInfoDetail>The TIE/sa bomber, simply known as the TIE bomber was a larger, less maneuverable TIE starfighter used for destroying large starships and pinpoint-precision bombing. The "sa" in the TIE bomber's designation stood for "surface assault."</textInfoDetail>
+				<GeneralView>TieBomber.mp4</GeneralView>
+				<FrontView>TieBomberDavant.png</FrontView>
+				<SideView>TieBomberLateral.png</SideView>
+				<TopView>TieBomberDalt.png</TopView>
+				<RearView>TieBomber.png</RearView>
+				<View360>VideoBomber.png</View360>
+				<Data>	
+					<Manufacturer>Sienar Fleet Systems</Manufacturer>
+					<Length>7.8</Length>
+					<Speed>850 kph</Speed>
+					<Hyperdrive>None</Hyperdrive>
+					<Shielding>None</Shielding>
+					<Armament>T-s5 proton torpedo launchers</Armament>
+				</Data>
+			</InfoDetail>
+			<InfoDetail>
+				<title>TIE/LN Fighter</title>
+				<pdfFile>TieFigther.pdf</pdfFile>
+				<Blueprint>tie.jpg</Blueprint>
+				<idInfoDetail>1</idInfoDetail>
+				<textInfoDetail>TIEs were designed to attack in large numbers, overwhelming the enemy craft. Standard attack squadrons consisted of 12 fighters while full attack wings were made up of six squadrons</textInfoDetail>
+				<GeneralView>TieFigther.mp4</GeneralView>
+				<FrontView>TieFigtherDavant.png</FrontView>
+				<SideView>TieFigtherLateral.png</SideView>
+				<TopView>TieFigtherDalt.png</TopView>
+				<RearView>TieFigther.png</RearView>
+				<View360>VideoTieFigther.png</View360>
+				<Data>	
+					<Manufacturer>Sienar Fleet Systems</Manufacturer>
+					<Length>6.3</Length>
+					<Speed>1200 kph</Speed>
+					<Hyperdrive>none</Hyperdrive>
+					<Shielding>None</Shielding>
+					<Armament>Laser cannons</Armament>
+				</Data>
+			</InfoDetail>
+		</InfoDetails>
+	</TechnicalInfo>
