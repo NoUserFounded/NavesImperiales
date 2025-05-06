@@ -33,14 +33,8 @@ namespace NavesImperiales
             if (selectedDetail == null) return;
 
             string pdfPath = Path.Combine(basePath, "images/", selectedOption.textOption, selectedDetail.pdfFile);
-            if (File.Exists(pdfPath))
-            {
-                System.Diagnostics.Process.Start(pdfPath);
-            }
-            else
-            {
-                MessageBox.Show("No se encontró el PDF.");
-            }
+            frmPDFViewer visor = new frmPDFViewer(pdfPath);
+            visor.Show();
         }
         private void showMediaSelectedImg (int index)
         {
@@ -194,6 +188,11 @@ namespace NavesImperiales
                 showMediaSelectedImg(selectedIndex);
 
             }
+        }
+
+        private void pbClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
