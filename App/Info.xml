@@ -75,9 +75,7 @@
 				<pdfFile>TieInterceptor.pdf</pdfFile>
 				<Blueprint>TieInterceptor.jpg</Blueprint>
 				<idInfoDetail>2</idInfoDetail>
-				<textInfoDetail>
-				Interceptors were fast and maneuverable starfighters. They were designed specifically to target, hunt down, and destroy enemy fighters and bombers, hence the name interceptor, and thus were generally unsuited to carrying heavy bombing payloads. Interceptors could also be used for reconnaissance due to their high speed.
-				</textInfoDetail>
+				<textInfoDetail>Interceptors were fast and maneuverable starfighters. They were designed specifically to target, hunt down, and destroy enemy fighters and bombers, hence the name interceptor, and thus were generally unsuited to carrying heavy bombing payloads. Interceptors could also be used for reconnaissance due to their high speed.</textInfoDetail>
 				<GeneralView>TieInterceptor.mp4</GeneralView>
 				<FrontView>TieInterceptorDavant.png</FrontView>
 				<SideView>TieInterceptorLateral.png</SideView>
