@@ -19,6 +19,8 @@ namespace NavesImperiales
         private InfoDetail selectedDetail;
 
         private string basePath = Application.StartupPath;
+        private List<string> imagePaths = new List<string>();
+
 
         public MainForm()
         {
@@ -40,6 +42,70 @@ namespace NavesImperiales
                 MessageBox.Show("No se encontró el PDF.");
             }
         }
+        private void showMediaSelectedImg (int index)
+        {
+            if ( index >= 0 && index < 4)
+            {
+                wmpView360.Visible = false;
+                pbSelectedImg.Visible = true;
+
+                string selectedImagePath = imagePaths[index];
+                pbSelectedImg.Image = Image.FromFile(selectedImagePath);
+            } else
+            {
+                wmpView360.Visible = true;
+                wmpView360.uiMode = "none";
+                pbSelectedImg.Visible = false;
+
+                string videoPath = Path.Combine(basePath, "images/", selectedOption.textOption);
+                videoPath = Directory.GetFiles(videoPath, "*.mp4")[0];
+                wmpView360.URL = videoPath;
+                wmpView360.stretchToFit = true;
+            }
+
+        }
+
+        private void loadShipsImages()
+        {
+            string[] images = new string[]
+            {
+                selectedDetail.FrontView,
+                selectedDetail.SideView,
+                selectedDetail.TopView,
+                selectedDetail.RearView,
+                selectedDetail.View360
+            };
+
+            ImageList imgList = new ImageList();
+            imgList.ImageSize = new Size(64, 64); // Tamaño más grande para que se vean bien
+
+            lvShipsImages.Clear(); // Limpiar ítems anteriores
+            lvShipsImages.View = View.LargeIcon;
+            lvShipsImages.LargeImageList = imgList;
+            
+            imagePaths.Clear();
+
+
+            int index = 0;
+            foreach (var imgPath in images)
+            {
+                if (!string.IsNullOrEmpty(imgPath))
+                {
+                    string iconPath = Path.Combine(basePath, "images/", selectedOption.textOption, imgPath);
+                    imagePaths.Add(iconPath);
+                    if (File.Exists(iconPath))
+                    {
+                        imgList.Images.Add(Image.FromFile(iconPath));
+
+                        // Agregar el ítem con índice correspondiente
+                        ListViewItem item = new ListViewItem("", index);
+                        lvShipsImages.Items.Add(item);
+                        index++;
+                    }
+                }
+            }
+        }
+
 
         private void listView_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -55,11 +121,14 @@ namespace NavesImperiales
             if (selectedDetail == null) return;
 
             // Mostrar imagen principal (Blueprint)
-            string imgPath = Path.Combine(basePath, "images", selectedDetail.Blueprint);
+            string imgPath = Path.Combine(basePath, "images/", selectedOption.textOption, selectedDetail.Blueprint);
             if (File.Exists(imgPath))
                 pbPlanols.Image = Image.FromFile(imgPath);
             else
                 pbPlanols.Image = null;
+
+            lbShipName.Text = selectedDetail.title;
+            txtDescription.Text = selectedDetail.textInfoDetail;
 
             // Mostrar detalles en el DataGridView
             dgvEspec.Rows.Clear();
@@ -73,6 +142,7 @@ namespace NavesImperiales
                 dgvEspec.Rows.Add("Armament", selectedDetail.Data.Armament);
             }
             dgvEspec.ClearSelection();
+            loadShipsImages();
         }
 
         private void Load_Data()
@@ -81,7 +151,6 @@ namespace NavesImperiales
             technicalInfo = XmlManager<TechnicalInfo>.Load(xmlPath);
 
             // Configurar el ListView
-            lvNaus.View = View.Details;  // Establecer la vista a "Detalles"
             lvNaus.Columns.Add("Ship Name", -2, HorizontalAlignment.Left);  // Añadir solo una columna para el nombre de la nave
 
             // Crear una lista de imágenes
@@ -102,7 +171,9 @@ namespace NavesImperiales
                 }
             }
 
-            lvNaus.LargeImageList = imgList;  // Asignar la lista de imágenes al ListView
+            lvNaus.View = View.List;
+            lvNaus.SmallImageList = imgList; // 🔑 esta línea es necesaria
+                                             // Asignar la lista de imágenes al ListView
 
             // Añadir ítems al ListView
             foreach (var option in technicalInfo.InfoOptions)
@@ -110,6 +181,18 @@ namespace NavesImperiales
                 var item = new ListViewItem(option.textOption);
                 item.ImageKey = option.textOption;  // Asegurarse de que el ImageKey coincide con el que tenemos en el ImageList
                 lvNaus.Items.Add(item);  // Agregar el ítem al ListView
+            }
+        }
+
+        private void lvShipsImages_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Verificar si hay algún ítem seleccionado
+            if (lvShipsImages.SelectedIndices.Count > 0)
+            {
+                // Obtener el índice del ítem seleccionado
+                int selectedIndex = lvShipsImages.SelectedItems[0].ImageIndex;
+                showMediaSelectedImg(selectedIndex);
+
             }
         }
     }
